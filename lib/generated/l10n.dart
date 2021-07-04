@@ -60,11 +60,11 @@ class S {
     );
   }
 
-  /// `Sport`
-  String get tabSport {
+  /// `Fix`
+  String get tabFix {
     return Intl.message(
-      'Sport',
-      name: 'tabSport',
+      'Fix',
+      name: 'tabFix',
       desc: '',
       args: [],
     );

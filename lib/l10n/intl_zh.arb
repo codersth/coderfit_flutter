@@ -3,9 +3,9 @@
   "@tabHome": {
     "description": "各功能的快捷入口，蕴含浮躁世界之意"
   },
-  "tabSport": "休身",
-  "@tabSport": {
-    "description": "运动列表，健身"
+  "tabFix": "修身",
+  "@tabFix": {
+    "description": "运动，健身"
   },
   "tabRecuperation": "养性",
   "@tabRecuperation": {

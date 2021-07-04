@@ -21,9 +21,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "tabFix": MessageLookupByLibrary.simpleMessage("修身"),
         "tabHome": MessageLookupByLibrary.simpleMessage("浮华"),
         "tabRecuperation": MessageLookupByLibrary.simpleMessage("养性"),
-        "tabSport": MessageLookupByLibrary.simpleMessage("休身"),
         "tabUser": MessageLookupByLibrary.simpleMessage("归真")
       };
 }
