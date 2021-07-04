@@ -1,18 +1,21 @@
 import 'dart:ffi';
 
 import 'package:coderfit_flutter/constants/Constants.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'home/main_home.dart';
 
 void main() {
   runApp(MainApp());
 }
 
-/// The main component opened at the first as the shortcut entrances after app prepared for user.
-/// It also contains [BottomNavigationBar] to hold four tabs, that is, 'fuhua' as a home page,
+/// The main component contains [BottomNavigationBar] to hold four tabs, that is, 'fuhua' as a home page,
 /// 'xiushen' as a sport page, 'yangxing' as a recuperation page, and 'guizhen' as an user's information
 /// page.
 class MainApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,6 +28,8 @@ class MainApp extends StatelessWidget {
 
 /// This is the content widget that the main component holds.
 class MainContentWidget extends StatefulWidget {
+
+
   @override
   State<StatefulWidget> createState() {
     return _MainContentState();
@@ -37,11 +42,23 @@ class _MainContentState extends State<MainContentWidget> {
   int _selectedIndex = 0;
 
   /// Collections of the entire pages.
-  static const tabPages = <Widget>[Text(''), Text(''), Text(''), Text('')];
+  static final tabPages = <Widget>[
+    MainHomeWidget(),
+    Text(''),
+    Text(''),
+    Text('')
+  ];
 
   /// Collections of image path inside of tab.
-  static const tabImages = [
+  static const tabDefaultImages = [
     "assets/images/ic_tab_home_default.png",
+    "assets/images/ic_tab_home_default.png",
+    "assets/images/ic_tab_home_default.png",
+    "assets/images/ic_tab_home_default.png"
+  ];
+
+  static const tabSelectedImages = [
+    "assets/images/ic_tab_home_selected.png",
     "assets/images/ic_tab_home_default.png",
     "assets/images/ic_tab_home_default.png",
     "assets/images/ic_tab_home_default.png"
@@ -52,30 +69,31 @@ class _MainContentState extends State<MainContentWidget> {
     // Items inside of bottom navigator in which each item has bean internationalized.
     var navigatorItems = <BottomNavigationBarItem>[
       _createBottomNavigationItem(
-          tabImages[0], AppLocalizations.of(context)!.tabHome),
+          0, AppLocalizations.of(context)!.tabHome),
       _createBottomNavigationItem(
-          tabImages[1], AppLocalizations.of(context)!.tabSport),
+          1, AppLocalizations.of(context)!.tabSport),
       _createBottomNavigationItem(
-          tabImages[2], AppLocalizations.of(context)!.tabRecuperation),
+          2, AppLocalizations.of(context)!.tabRecuperation),
       _createBottomNavigationItem(
-          tabImages[3], AppLocalizations.of(context)!.tabUser)
+          3, AppLocalizations.of(context)!.tabUser)
     ];
     return Scaffold(
         body: Center(child: tabPages[_selectedIndex]),
         bottomNavigationBar: BottomNavigationBar(
-          items: navigatorItems,
-          currentIndex: _selectedIndex,
-          onTap: _navigatorItemTapped,
-        ));
+            items: navigatorItems,
+            currentIndex: _selectedIndex,
+            unselectedItemColor: Colors.black,
+            onTap: _navigatorItemTapped));
   }
 
-  /// Construct [BottomNavigationBarItem] with [imagePath], and [title].
+  /// Construct [BottomNavigationBarItem] with [position], and [title].
   BottomNavigationBarItem _createBottomNavigationItem(
-      String imagePath, String title) {
+      int position, String title) {
     return BottomNavigationBarItem(
-        icon: Image.asset(imagePath,
-            width: Constants.tabSize, height: Constants.tabSize),
-        label: title);
+      icon: Image.asset(_selectedIndex == position ? tabSelectedImages[position] : tabDefaultImages[position], width: Constants.tabSize, height: Constants.tabSize),
+      label: title,
+      backgroundColor: Colors.lightBlue
+    );
   }
 
   /// Tap event with [BottomNavigationBar]'s item clicked.
