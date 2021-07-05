@@ -9,9 +9,9 @@ class AppBottomNavigator extends BottomNavigationBar {
   /// default image, and the second value means image tab selected.
   static const tabImages = [
     ["assets/images/ic_tab_home_default.png", "assets/images/ic_tab_home_selected.png"],
-    ["assets/images/ic_tab_home_default.png", "assets/images/ic_tab_home_selected.png"],
-    ["assets/images/ic_tab_home_default.png", "assets/images/ic_tab_home_selected.png"],
-    ["assets/images/ic_tab_home_default.png", "assets/images/ic_tab_home_selected.png"]
+    ["assets/images/ic_tab_fix_default.png", "assets/images/ic_tab_fix_selected.png"],
+    ["assets/images/ic_tab_recuperation_default.png", "assets/images/ic_tab_recuperation_selected.png"],
+    ["assets/images/ic_tab_user_default.png", "assets/images/ic_tab_user_selected.png"]
   ];
 
   /// Construct [BottomNavigationBarItem] with [position], and [title].
@@ -20,12 +20,12 @@ class AppBottomNavigator extends BottomNavigationBar {
     return BottomNavigationBarItem(
         icon: Image.asset(
             currentPosition == position
-                ? tabImages[position][0]
-                : tabImages[position][1],
+                ? tabImages[position][1]
+                : tabImages[position][0],
             width: Constants.tabSize,
             height: Constants.tabSize),
         label: title,
-        backgroundColor: Colors.lightBlue);
+        backgroundColor: Colors.black45);
   }
 
   /// Construct with current position [currentPosition] and [context], optional [callback] for

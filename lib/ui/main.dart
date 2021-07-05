@@ -1,10 +1,7 @@
-import 'dart:ffi';
-
 import 'package:coderfit_flutter/ui/fix/main_fix.dart';
 import 'package:coderfit_flutter/ui/recuperation/main_recuperation.dart';
 import 'package:coderfit_flutter/ui/user/main_user.dart';
 import 'package:coderfit_flutter/widgets/app_bottom_navigator.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -46,8 +43,8 @@ class _MainContentState extends State<MainContentWidget> {
   /// Collections of the entire pages.
   static final tabPages = <Widget>[
     MainHomeWidget(),
-    MainRecuperationWidget(),
     MainFixWidget(),
+    MainRecuperationWidget(),
     MainUserWidget()
   ];
 

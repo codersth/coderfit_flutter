@@ -48,8 +48,14 @@ flutter:
   # For generating file for internationalization and so on.
   generate: true
   assets:
+    - assets/images/ic_tab_fix_default.png
+    - assets/images/ic_tab_fix_selected.png
     - assets/images/ic_tab_home_default.png
     - assets/images/ic_tab_home_selected.png
+    - assets/images/ic_tab_recuperation_default.png
+    - assets/images/ic_tab_recuperation_selected.png
+    - assets/images/ic_tab_user_default.png
+    - assets/images/ic_tab_user_selected.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
