@@ -1,7 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bmflocation/bdmap_location_flutter_plugin.dart';
+import 'package:flutter_bmflocation/flutter_baidu_location.dart';
+import 'package:flutter_bmflocation/flutter_baidu_location_android_option.dart';
+import 'package:flutter_bmflocation/flutter_baidu_location_ios_option.dart';
 /// Home page inside of [MainApp] opened at the first as the shortcut entrances after app prepared for user.
 class MainHomeWidget extends StatelessWidget {
   @override
@@ -32,6 +35,16 @@ class _HeadWidget extends StatefulWidget {
 }
 
 class _HeadWidgetState extends State<_HeadWidget> {
+
+  final LocationFlutterPlugin _locationPlugin = new LocationFlutterPlugin();
+
+  @override
+  void initState() {
+    _locationPlugin.requestPermission();
+    // TODO: Set iOS baidu map ak.
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(

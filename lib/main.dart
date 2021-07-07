@@ -5,7 +5,7 @@ import 'package:coderfit_flutter/widgets/app_bottom_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'home/main_home.dart';
+import 'ui/home/main_home.dart';
 
 void main() {
   runApp(MainApp());
@@ -51,7 +51,7 @@ class _MainContentState extends State<MainContentWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(child: tabPages[_selectedIndex]),
+        body: SafeArea(child: Center(child: tabPages[_selectedIndex]),),
         bottomNavigationBar: AppBottomNavigator(_selectedIndex, context, _navigatorItemTapped));
   }
 
